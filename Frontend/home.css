@@ -1,80 +1,251 @@
-.navbar{
-    display: flex;
-    align-items: center;
-    position: relative;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", serif;  
 }
-.navbar div ul{
-    display: flex;
+.btn1 i{
+    font-size: 20px;
+    font-weight: 700px;
+    position: absolute;
+    left: 16px;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.2s linear;
 }
-
-.navbar ul li{
-    list-style: none;
+.btn1 i:hover{
+    font-size: 25px;
+}
+#check,.addTask, #inbox{
+    display: none;
 } 
-.navbar li a{
-    display: block;
-    padding: 3px 23px;
-    border-radius: 20px;
-    font-size: 18px;
+.headId, body{
+    display: flex;
+}
+.sidebarMenu{
+    position: fixed;
+    left: -300px;
+    width: 270px;
+    height: 100vh;
+    /* background-color: rgb(248, 239, 239); */
+    background-color: whitesmoke;
+    box-shadow: 0 0 8px gray;
+    transition: all 0.2s linear;
+}
+.sidebarMenu .logo{
+    margin-left:10px;
+    position: absolute;
+    font-size: 25px;
+    width: 100%;
+}
+.sidebarMenu .logo a{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
     text-decoration: none;
-    color: rgb(0, 2, 4);
 }
-.navbar ul li a:hover {
-    position: relative;
+.sidebarMenu .logo i{
+    color: black;
+    font-weight: bold;
+}
+.sidebarMenu .btnTwo i{
+    font-size: 20px;
+    position: absolute;
+    left: 230px;
+    top: 11px;
     cursor: pointer;
-    color: rgb(243, 242, 242);
-    background-color: rgb(12, 11, 11);
-
+    transition: all 0.2s linear;
 }
-.navbar li span{
-    padding: 3px 23px;
-    border-radius: 20px;
-    font-size: 18px;
+.sidebarMenu .btnTwo i:hover{
+   font-size: 22px;
+}
+
+.sidebarMenu .menu{
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 10px;
+}
+.sidebarMenu .menu i, a{
     text-decoration: none;
-    color: rgb(0, 2, 4);
+    color: gray;
+    font-size: 18px;
+    padding-right: 8px;
 }
-.navbar ul li span:hover {
-    position: relative;
-    cursor: pointer;
-    color: rgb(243, 242, 242);
-    background-color: rgb(12, 11, 11);
+.sidebarMenu h3{
+    color: black;
+    margin: 4px;
+}
+.sidebarMenu .browse{
+    position: absolute;
+    left: 8%;
+    bottom: 30px;
+}
+.sidebarMenu .team{
+    position: absolute;
+    left: 8%;
+    bottom: 60px;
+}
+.sidebarMenu .menu li{
+    list-style: none;
+    padding: 8px;
+    /* transition: all 0.2s ease-in-out; */
+}
 
+.sidebarMenu .menu li:hover{
+    box-shadow: 0 0 2px black; 
+    background-color: rgba(128, 128, 128, 0.2);
+    border-radius: 5px;
+    width:230px;
 }
-.navbar::before {
+.sidebarMenu .menu li:hover a, 
+.sidebarMenu .menu li:hover i {
+    color: black; /* Ensure text and icons change color */
+    font-weight: 800px;
+}
+#today::before{
     content: "";
     position: absolute;
-    height: 100%;
+    background: url("today.png") no-repeat center center/cover;
+    height: 642px;
+    top: 0px;
+    left: 0px;
     width: 100%;
-    z-index: -2;
-    opacity: 0.4;
-
-}
-.logo img{
-    height: 60px;
-    width: 50px;
+    z-index: -1;
+    opacity: 0.5;
 }
 
-.dropdwn{
-    display: none;
-    background-color: white;
-    border-radius: 5px;
+#inbox::before{
+    content: "";
+    position: absolute;
+    background: url("image.png") no-repeat center center/cover;
+    height: 642px;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.18;
 }
 
-.dropdwn a{
-    display: block;
-    padding: 3px 23px;
-    margin: 0 400px;
-    border-radius: 20px;
+.sec{
+    margin:55px 0px 0px 300px;
+    min-height: 100vh; /* Prevents content from shifting */
+    width: calc(100% - 300px); /* Adjust width based on sidebar */
+    overflow-y: auto;
+}
+.sec h2{
+    font-size: 30px;
+}
+.sec .addBtn i{
+    color: blue;
+}
+.sec .addBtn:hover i,.sec .addBtn:hover a{
+    color: rgb(103, 103, 245);
+}
+#view{
+    position: absolute;
+    margin: 10px 10px 10px 1180px;
     font-size: 15px;
-    text-decoration: none;
-    color: rgb(0, 2, 4);
+    padding: 2px;
+    border-radius: 8px;
+    border:0px;
+    height: 35px;
+    width: 70px;
+    background-color: rgb(0,0,240,0.8);
+    color: white;
 }
-.dropdwn a:hover{
-    position: relative;
+#view i{
+    margin:3px;
+}
+#view:hover{
     cursor: pointer;
-    color: rgb(243, 242, 242);
-    background-color: rgb(12, 11, 11);
+    background-color: rgba(0, 0, 255);
+    transform: scale(1.1);
 }
-.visible{
-    display: flex;
-    flex-direction: column;
+.content{
+    position: fixed;
+    bottom: 100px; /* Adjust based on preference */
+    left: 60%;
+    transform: translateX(-50%);
+    width:500px; /* Set a fixed width */
+    text-align: center;
+}
+.addTask{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 0 3px gray;
+    border-radius: 9px;
+    padding: 4px;
+    transform: translate(-50%, -50%);
+}
+.addTask div input{
+    margin:5px 5px 0px 5px;   
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 9px;
+    border:0
+}
+.addTask #cancelTask{
+    cursor: pointer;
+    margin:5px;   
+    padding: 5px;
+    border-radius: 9px;
+    border:0
+}
+.addTask #addTaskBtn{
+    cursor: pointer;
+    margin:5px ;   
+    padding: 5px;
+    border-radius: 9px;
+    border:0
+}
+.addTask button:hover{
+    background-color: rgba(128, 128, 128, 0.3);
+    color: black;
+}
+.showtask{
+    max-height: 300px; /* Adjust as needed */
+    overflow-y: auto;
+}
+.showtask li{
+    list-style: none;
+    margin: 4px;
+    height: 28px;
+}
+.showtask li .edit{
+    position: relative;
+    color:gray;
+    margin:0px 0px 0px 10px; 
+    box-shadow: 0 0 2px gray;
+    padding :4px;
+    border-radius: 6px;
+    border:0
+}
+.showtask li .delete{
+    color:gray;
+    position: relative;
+    margin:0px 0px 0px 10px; 
+    box-shadow: 0 0 2px gray;
+    padding :4px;
+    border-radius: 6px;
+    border:0
+}
+.showtask li button:hover{
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.3);
+    color: black;
+}
+.sec .addBtn a{
+    color: blue;
+}
+
+#check:checked ~ .sidebarMenu{
+    left: 0;
+}
+
+#check:checked ~ .btn1{
+    opacity:0;
 }

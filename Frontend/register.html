@@ -13,21 +13,25 @@
     <section class="login">
         <div class="box">
             <h1>To Do List</h1>
-            <form method="post" action="http://localhost:9000/login" id="login">
+            <form method="post" action="http://localhost:9000/register" id="register">
+                <div class="input">
+                    <input type="text" name="username" placeholder="Enter your username">
+                </div>
                 <div class="input">
                     <input type="email" name="email" placeholder="Enter your email">
                 </div>
                 <div class="input">
                     <input type="password" name="password" placeholder="Enter your password">
                 </div>
-                <button type="submit" id="loginBtn">Login</button>
+                <button type="submit" id="loginBtn">Sign up</button>
                 
             </form>
-            <p> Don't have an account? <a href="register.html">Sign up</a></p>
+            <p> Already signed in? <a href="login.html">Sign in</a></p>
         </div>
         
     </section>
     
-    <script src="login.js"></script>
+    <script src="register.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
 </body>
 </html>
